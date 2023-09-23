@@ -8,7 +8,7 @@ import norm.data_handling as data_handling
 from transformers import LogitsProcessorList, StoppingCriteriaList, BeamSearchScorer
 from dataclasses import dataclass
 from transformers.file_utils import ModelOutput
-import norm.utils as utils
+import norm.utils
 import re
 import datasets
 from datasets import load_dataset
@@ -348,7 +348,7 @@ def infer(text_input_list, bias_list):
     pronounce_mapping = build_spoken_pronounce_mapping(bias_list)
 
     # Chunk split input and create feature
-    text_input_chunk_list = [utils.split_chunk_input(item, chunk_size=60, overlap=20) for item in text_input_list]
+    text_input_chunk_list = [norm.utils.split_chunk_input(item, chunk_size=60, overlap=20) for item in text_input_list]
     num_chunks = [len(i) for i in text_input_chunk_list]
     flatten_list = [y for x in text_input_chunk_list for y in x]
     input_raw_features = make_batch_input(flatten_list)
@@ -362,7 +362,7 @@ def infer(text_input_list, bias_list):
         start = sum(num_chunks[:idx])
         end = start + num_chunks[idx]
         list_pre_norm_by_input.append(list_pre_norm[start:end])
-    text_input_list_pre_norm = [utils.merge_chunk_pre_norm(list_chunks, overlap=20, debug=False) for list_chunks in list_pre_norm_by_input]
+    text_input_list_pre_norm = [norm.utils.merge_chunk_pre_norm(list_chunks, overlap=20, debug=False) for list_chunks in list_pre_norm_by_input]
 
     if len(list_spoken_features) > 0:
         spoken_norm_output, spoken_norm_score = generate_spoken_norm(list_spoken_features, list_features_mask, bias_features)
