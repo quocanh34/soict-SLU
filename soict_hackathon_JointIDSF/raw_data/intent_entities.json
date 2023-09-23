@@ -1,0 +1,952 @@
+{
+  "tắt thiết bị": {
+    "command": [
+      "tắt"
+    ],
+    "device": [
+      "máy tính xách tay",
+      "đèn trần",
+      "quạt treo tường",
+      "camera",
+      "máy in",
+      "lò vi sóng",
+      "bóng compact",
+      "máy fax",
+      "điện",
+      "tủ lạnh",
+      "bóng trụ cổng",
+      "máy mát xa",
+      "đèn tròn",
+      "đèn tường",
+      "đèn hắt tường",
+      "đèn compact",
+      "bóng để bàn",
+      "bình nóng lạnh",
+      "bóng ngủ",
+      "máy pha cafe",
+      "bóng tuýp",
+      "đèn sưởi",
+      "đèn ốp tường",
+      "máy hút ẩm",
+      "đèn ngủ",
+      "máy chơi game",
+      "đèn sợi đốt",
+      "bóng âm trần",
+      "bóng thả",
+      "bếp",
+      "đèn làm việc",
+      "đèn chùm",
+      "máy hút mùi",
+      "đèn hắt trần",
+      "bóng",
+      "radio",
+      "đèn ốp trần",
+      "máy hút bụi",
+      "đèn tranh",
+      "bóng treo tường",
+      "đèn học",
+      "đèn huỳnh quang",
+      "đèn led",
+      "bóng chùm",
+      "đèn thả",
+      "bóng sân",
+      "đèn hắt",
+      "máy rửa bát",
+      "bóng huỳnh quang",
+      "bóng tròn",
+      "bóng sưởi",
+      "đèn cây",
+      "lò nướng",
+      "van tưới",
+      "đèn treo tường",
+      "đèn"
+    ],
+    "time at": [
+      "11 giờ 47 phút",
+      "21 giờ 57 phút",
+      "10 giờ 3 phút",
+      "9 giờ 22 phút",
+      "13 giờ 59 phút",
+      "23 giờ 16 phút",
+      "19 giờ 43 phút",
+      "2 giờ 51 phút",
+      "16 giờ 21 phút",
+      "14 giờ 55 phút"
+    ],
+    "location": [
+      "phòng sách số 8",
+      "phòng làm việc",
+      "phòng đọc phía đông",
+      "phòng nghỉ ngơi",
+      "nhà xe tình yêu",
+      "wc",
+      "thư viện",
+      "phòng chờ",
+      "phòng học",
+      "phòng sinh hoạt chung",
+      "hầm rượu",
+      "phòng đọc",
+      "hè trước",
+      "tiền sảnh",
+      "hiên trước",
+      "phòng họp",
+      "phòng tập gym",
+      "nhà để xe của duy",
+      "phòng chơi game"
+    ],
+    "duration": [
+      "18 tiếng 7 phút",
+      "17 tiếng 30 phút",
+      "1 tiếng 33 phút",
+      "1 tiếng 41 phút",
+      "10 tiếng 33 phút",
+      "3 tiếng 16 phút",
+      "20 tiếng 26 phút",
+      "22 tiếng 52 phút"
+    ]
+  },
+  "bật thiết bị": {
+    "command": [
+      "bật"
+    ],
+    "device": [
+      "máy giặt",
+      "vòi tưới",
+      "máy mát xa",
+      "đèn tranh",
+      "bóng tròn",
+      "bóng ngủ",
+      "bóng chùm",
+      "máy hút mùi",
+      "bóng ốp trần",
+      "bóng trụ cổng",
+      "đèn thả",
+      "điện",
+      "tủ lạnh",
+      "máy tính xách tay",
+      "đèn chùm",
+      "van tưới",
+      "quạt treo tường",
+      "máy in",
+      "máy fax",
+      "đèn âm trần",
+      "máy rửa bát",
+      "laptop",
+      "máy lạnh",
+      "lò sưởi",
+      "máy chơi game",
+      "lò nướng",
+      "bóng huỳnh quang",
+      "camera",
+      "bình nóng lạnh",
+      "đèn cây",
+      "đèn cổng",
+      "bóng tuýp",
+      "bóng hắt",
+      "bóng đứng",
+      "máy hút bụi",
+      "đèn bàn",
+      "bóng sưởi",
+      "đèn ngủ",
+      "bóng sân",
+      "máy tính",
+      "đèn học",
+      "đèn ốp tường",
+      "đèn làm việc",
+      "đèn bếp",
+      "đèn trụ cổng",
+      "máy pha cafe",
+      "đèn tường",
+      "đèn led",
+      "bóng treo tường",
+      "bếp",
+      "đèn tuýp",
+      "bóng compact",
+      "máy sưởi",
+      "loa",
+      "đèn sưởi",
+      "máy nghe nhạc",
+      "điều hòa"
+    ],
+    "location": [
+      "tiền sảnh",
+      "phòng giặt là số 5",
+      "sân trước",
+      "tầng hầm",
+      "phòng chính",
+      "phòng thu",
+      "gác xép",
+      "phòng tiếp đón của linh",
+      "phòng tập gym của my",
+      "hành lang",
+      "cổng",
+      "phòng nghỉ của nhi",
+      "phòng sinh hoạt chung",
+      "hiên",
+      "bếp",
+      "hè",
+      "cầu thang của quân",
+      "phòng chung của em bé",
+      "hầm rượu",
+      "phòng ngủ của my",
+      "phòng ngủ",
+      "nhà bếp",
+      "phòng học",
+      "phòng giặt",
+      "sân",
+      "phòng khách của ông bà",
+      "wc",
+      "ban công",
+      "nhà tắm",
+      "phòng đọc của khôi",
+      "phòng thờ",
+      "tầng thượng",
+      "phòng bếp",
+      "phòng khách"
+    ],
+    "time at": [
+      "3 giờ 10 phút",
+      "19 giờ 45 phút",
+      "5 giờ 40 phút",
+      "16 giờ 3 phút",
+      "22 giờ 33 phút",
+      "22 giờ 27 phút",
+      "22 giờ 57 phút",
+      "14 giờ 31 phút",
+      "4 giờ 30 phút",
+      "9 giờ 40 phút",
+      "10 giờ 39 phút",
+      "1 giờ 20 phút",
+      "22 giờ 28 phút",
+      "11 giờ 31 phút",
+      "13 giờ 28 phút",
+      "9 giờ 24 phút"
+    ],
+    "duration": [
+      "22 tiếng 11 phút",
+      "9 tiếng 34 phút",
+      "7 tiếng 51 phút",
+      "11 tiếng 51 phút",
+      "22 tiếng 45 phút",
+      "4 giờ 30 phút",
+      "9 tiếng 7 phút",
+      "16 tiếng 46 phút"
+    ],
+    "target number": [
+      "23 độ c",
+      "35%",
+      "29%",
+      "74%",
+      "97%",
+      "23%",
+      "45%",
+      "3%"
+    ]
+  },
+  "tăng độ sáng của thiết bị": {
+    "command": [
+      "tăng"
+    ],
+    "device": [
+      "bóng compact",
+      "đèn tuýp",
+      "bóng chùm",
+      "bóng",
+      "đèn cây",
+      "đèn trụ cổng",
+      "đèn bàn",
+      "bóng tuýp",
+      "đèn",
+      "đèn compact",
+      "đèn led",
+      "đèn làm việc",
+      "đèn hắt",
+      "bóng đứng",
+      "đèn ốp tường",
+      "đèn hắt tường",
+      "bóng làm việc",
+      "bóng tròn",
+      "đèn chùm",
+      "đèn cổng",
+      "bóng để bàn",
+      "đèn tròn",
+      "đèn tường",
+      "đèn thả",
+      "đèn sợi đốt",
+      "bóng thả",
+      "bóng âm trần",
+      "bóng ốp trần",
+      "đèn âm trần",
+      "bóng huỳnh quang",
+      "đèn bếp",
+      "đèn huỳnh quang",
+      "đèn rủ",
+      "đèn ốp trần"
+    ],
+    "changing value": [
+      "39%",
+      "51%",
+      "29%",
+      "26%",
+      "9%",
+      "89%",
+      "6%",
+      "78%",
+      "19%",
+      "12%",
+      "99%",
+      "88%",
+      "20%",
+      "42%",
+      "35%",
+      "18%",
+      "10%",
+      "66%",
+      "34%"
+    ],
+    "target number": [
+      "88%",
+      "47%",
+      "8%",
+      "71%",
+      "78%",
+      "31%",
+      "13%",
+      "36%",
+      "97%",
+      "27%",
+      "41%",
+      "83%",
+      "62%",
+      "21%",
+      "72%",
+      "96%",
+      "15%",
+      "3%",
+      "92%",
+      "11%",
+      "44%"
+    ],
+    "location": [
+      "hành lang",
+      "sân số 7",
+      "cầu thang",
+      "hè sau",
+      "sân thượng",
+      "đầu hè",
+      "garage",
+      "phòng học",
+      "sân trước",
+      "thư viện",
+      "hành lang trường sa",
+      "hiên sau",
+      "nhà vệ sinh"
+    ],
+    "duration": [
+      "2 tiếng 56 phút",
+      "26 phút",
+      "7 tiếng 25 phút",
+      "11 tiếng 53 phút",
+      "14 tiếng 42 phút",
+      "17 tiếng 30 phút",
+      "6 tiếng 25 phút",
+      "14 tiếng 13 phút"
+    ],
+    "time at": [
+      "13 giờ 9 phút",
+      "4 giờ 4 phút",
+      "4 giờ 12 phút",
+      "6 giờ 7 phút",
+      "20 giờ 45 phút",
+      "17 giờ 15 phút",
+      "10 giờ 23 phút"
+    ]
+  },
+  "mở thiết bị": {
+    "command": [
+      "mở"
+    ],
+    "device": [
+      "cửa cuốn",
+      "mành cuốn",
+      "máy giặt",
+      "radio",
+      "máy lạnh",
+      "vòi hoa sen",
+      "mành",
+      "điều hòa",
+      "cửa",
+      "máy hút ẩm",
+      "quạt thông gió",
+      "máy mát xa",
+      "quạt hút mùi",
+      "loa",
+      "màn cửa",
+      "rèm",
+      "máy sưởi",
+      "camera",
+      "màn cuốn",
+      "tủ lạnh",
+      "bình nóng lạnh",
+      "máy hút bụi",
+      "màn cửa số 18",
+      "van tưới",
+      "điều hòa số 11",
+      "ti vi",
+      "rèm cửa",
+      "vòi nước",
+      "máy nghe nhạc"
+    ],
+    "location": [
+      "sảnh",
+      "phòng cuối",
+      "phòng chính",
+      "cổng",
+      "phòng họp",
+      "tầng thượng",
+      "nhà tắm",
+      "phòng truyền thống trường sa",
+      "phòng họp gia đình",
+      "đại sảnh",
+      "nhà bếp",
+      "phòng",
+      "cổng chính",
+      "phòng giặt là của hân",
+      "phòng giặt là bên trái",
+      "hầm rượu mùa xuân",
+      "phòng giặt",
+      "phòng đọc của khôi",
+      "phòng đợi",
+      "tầng hầm",
+      "phòng tắm xông hơi bên phải",
+      "phòng chơi game",
+      "phòng tiếp đón",
+      "phòng nghỉ",
+      "nhà vệ sinh",
+      "ở phòng tắm"
+    ],
+    "time at": [
+      "6 giờ 51 phút",
+      "13 giờ 43 phút",
+      "9 giờ 24 phút",
+      "5 giờ 42 phút",
+      "13 giờ 28 phút",
+      "6 giờ 8 phút",
+      "10 giờ 19 phút",
+      "17 giờ 9 phút"
+    ],
+    "duration": [
+      "7 tiếng 12 phút",
+      "11 tiếng 16 phút",
+      "11 tiếng 44 phút",
+      "2 tiếng 50 phút",
+      "8 tiếng 6 phút",
+      "18 tiếng 22 phút",
+      "9 tiếng 7 phút"
+    ]
+  },
+  "giảm độ sáng của thiết bị": {
+    "command": [
+      "giảm"
+    ],
+    "device": [
+      "đèn tường",
+      "bóng compact",
+      "đèn compact",
+      "bóng tròn",
+      "bóng âm trần",
+      "bóng ốp trần",
+      "bóng tuýp",
+      "bóng chùm",
+      "đèn tuýp",
+      "bóng hắt",
+      "đèn âm trần",
+      "đèn hắt",
+      "đèn",
+      "đèn thả",
+      "đèn bàn",
+      "bóng trụ cổng",
+      "đèn chùm",
+      "bóng ngủ",
+      "bóng",
+      "đèn tròn",
+      "đèn hắt tường",
+      "đèn học",
+      "bóng đứng",
+      "bóng làm việc",
+      "đèn cổng",
+      "đèn sợi đốt",
+      "đèn làm việc",
+      "bóng sân",
+      "đèn trụ cổng",
+      "đèn led",
+      "bóng treo tường",
+      "bóng thả",
+      "đèn cây",
+      "đèn rủ",
+      "đèn huỳnh quang",
+      "bóng để bàn",
+      "đèn bếp"
+    ],
+    "location": [
+      "hè",
+      "phòng thu",
+      "phòng giặt ủi của nhi",
+      "ban công",
+      "vườn",
+      "sân thượng",
+      "nhà để xe",
+      "gác xép",
+      "nhà giữ đồ của vy",
+      "phòng vệ sinh",
+      "phòng thờ",
+      "phòng xem phim của hân",
+      "phòng thay đồ số 4",
+      "nhà xe của huy",
+      "phòng xem phim"
+    ],
+    "changing value": [
+      "4%",
+      "38%",
+      "58%",
+      "45%",
+      "6%",
+      "71%",
+      "35%",
+      "28%",
+      "8%",
+      "2%",
+      "37%",
+      "50%",
+      "95%",
+      "16%",
+      "73%",
+      "64%",
+      "39%",
+      "33%",
+      "34%",
+      "92%",
+      "24%",
+      "40%",
+      "13%",
+      "53%",
+      "36%"
+    ],
+    "target number": [
+      "65%",
+      "14%",
+      "59%",
+      "29%",
+      "85%",
+      "84%",
+      "39%",
+      "8%",
+      "61%",
+      "87%",
+      "4%",
+      "47%",
+      "35%",
+      "54%",
+      "77%",
+      "22%",
+      "38%"
+    ],
+    "time at": [
+      "22 giờ 34 phút",
+      "12 giờ 38 phút",
+      "15 giờ 58 phút",
+      "14 giờ 51 phút",
+      "5 giờ 16 phút",
+      "5 giờ 34 phút",
+      "22 giờ 14 phút",
+      "13 giờ 24 phút",
+      "0 giờ 34 phút",
+      "10 giờ 38 phút",
+      "1 giờ 51 phút"
+    ],
+    "duration": [
+      "5 tiếng 47 phút",
+      "16 tiếng 28 phút",
+      "14 tiếng 12 phút",
+      "21 tiếng 14 phút",
+      "21 tiếng 15 phút",
+      "16 tiếng 40 phút",
+      "2 tiếng 42 phút",
+      "22 tiếng 55 phút",
+      "22 tiếng 52 phút",
+      "5 tiếng 31 phút",
+      "7 tiếng 18 phút",
+      "21 tiếng 36 phút"
+    ]
+  },
+  "kích hoạt cảnh": {
+    "scene": [
+      "riêng tư",
+      "đi ngủ",
+      "ra khỏi phòng",
+      "lãng mạn",
+      "tiệc tùng",
+      "thư giãn",
+      "đi tắm",
+      "chế độ thư giãn",
+      "cần riêng tư"
+    ],
+    "location": [
+      "phòng chơi game",
+      "phòng làm việc",
+      "phòng tiếp đón",
+      "phòng khách",
+      "phòng chung",
+      "phòng ngủ",
+      "phòng học",
+      "phòng sinh hoạt chung",
+      "phòng bếp",
+      "phòng chờ",
+      "sảnh",
+      "đại sảnh",
+      "ban công",
+      "phòng chính",
+      "phòng nghỉ ngơi",
+      "phòng tắm xông hơi",
+      "nhà tắm",
+      "phòng đọc"
+    ],
+    "time at": [
+      "2 giờ 7 phút",
+      "23 giờ"
+    ],
+    "duration": [
+      "2 tiếng 17 phút",
+      "1 tiếng 45 phút",
+      "4 tiếng 51 phút",
+      "2 tiếng 32 phút",
+      "3 tiếng 49 phút",
+      "3 tiếng 37 phút"
+    ]
+  },
+  "kiểm tra tình trạng thiết bị": {
+    "location": [
+      "sân sau",
+      "phòng chính",
+      "phòng chung",
+      "phòng cuối",
+      "hiên trước",
+      "bếp số 2",
+      "phòng khách",
+      "nhà vệ sinh của đạt",
+      "vườn",
+      "hè",
+      "bếp",
+      "hiên",
+      "phòng tiếp đón",
+      "phòng làm việc",
+      "nhà tắm",
+      "đại sảnh",
+      "đầu hè",
+      "phòng xem phim",
+      "sân thượng",
+      "nhà giữ đồ trường sa",
+      "ban công số 3",
+      "nhà giữ đồ",
+      "wc"
+    ],
+    "command": [
+      "kiểm tra"
+    ],
+    "device": [
+      "bóng sân",
+      "đồng hồ",
+      "bóng treo tường",
+      "điện",
+      "bóng thả",
+      "máy hút bụi",
+      "máy chơi game",
+      "lò sưởi",
+      "đèn ngủ",
+      "bóng ngủ",
+      "mành cuốn",
+      "đèn âm trần",
+      "bóng trụ cổng",
+      "lò nướng",
+      "đèn",
+      "máy fax",
+      "camera",
+      "đèn compact",
+      "vòi hoa sen",
+      "bóng tròn",
+      "lò vi sóng",
+      "đèn trần",
+      "máy mát xa",
+      "bóng âm trần",
+      "máy in",
+      "đèn ốp tường",
+      "đèn hắt tường",
+      "đèn tường",
+      "máy pha cafe",
+      "đèn cổng",
+      "máy rửa bát",
+      "đèn ốp trần",
+      "đèn huỳnh quang",
+      "đèn sợi đốt",
+      "bóng ốp trần",
+      "đèn tranh",
+      "laptop",
+      "đèn led",
+      "đèn tròn",
+      "bóng làm việc",
+      "máy sưởi",
+      "máy tính xách tay",
+      "đèn bàn",
+      "đèn học",
+      "bóng đứng",
+      "đèn thả",
+      "đèn tuýp",
+      "đèn treo tường"
+    ],
+    "time at": [
+      "0 giờ 2 phút",
+      "17 giờ 46 phút",
+      "21 giờ 57 phút",
+      "9 giờ 42 phút",
+      "11 giờ 15 phút",
+      "15 giờ 3 phút",
+      "15 giờ 16 phút",
+      "22 giờ 57 phút",
+      "17 giờ",
+      "19 giờ 57 phút",
+      "11 giờ 22 phút",
+      "5 giờ 29 phút"
+    ]
+  },
+  "đóng thiết bị": {
+    "command": [
+      "đóng"
+    ],
+    "device": [
+      "rèm cửa",
+      "cửa cuốn",
+      "van nước",
+      "rèm",
+      "màn cuốn",
+      "mành cuốn",
+      "lò nướng",
+      "lò vi sóng",
+      "vòi hoa sen",
+      "lò sưởi",
+      "màn cửa",
+      "van tưới",
+      "cửa",
+      "vòi tưới",
+      "mành",
+      "tủ lạnh",
+      "vòi nước",
+      "cánh cửa"
+    ],
+    "location": [
+      "phòng chờ số 4",
+      "phòng khách",
+      "nhà tắm",
+      "phòng tắm",
+      "phòng chính",
+      "phòng vệ sinh số 9",
+      "đại sảnh bên phải",
+      "phòng ngủ",
+      "phòng bếp",
+      "phòng tắm của ông bà",
+      "phòng tập gym",
+      "phòng tắm xông hơi",
+      "phòng đợi",
+      "nhà bếp số 8",
+      "phòng họp",
+      "phòng cuối",
+      "cổng",
+      "cổng chính",
+      "phòng của long",
+      "bếp"
+    ],
+    "time at": [
+      "6 giờ 13 phút",
+      "5 giờ 45 phút",
+      "18 giờ 28 phút",
+      "15 giờ 38 phút"
+    ]
+  },
+  "tăng mức độ của thiết bị": {
+    "command": [
+      "tăng"
+    ],
+    "device": [
+      "vòi hoa sen",
+      "vòi tưới",
+      "quạt hút mùi",
+      "van tưới",
+      "quạt thông gió",
+      "máy hút ẩm",
+      "vòi nước",
+      "quạt trần"
+    ],
+    "changing value": [
+      "4",
+      "2"
+    ],
+    "location": [
+      "phòng họp gia đình",
+      "cầu thang",
+      "phòng xông hơi số 1",
+      "phòng xông hơi bên trái"
+    ],
+    "target number": [
+      "3",
+      "2"
+    ],
+    "time at": [
+      "23 giờ 40 phút",
+      "4 giờ 54 phút",
+      "17 giờ 48 phút"
+    ]
+  },
+  "giảm nhiệt độ của thiết bị": {
+    "command": [
+      "giảm"
+    ],
+    "device": [
+      "máy lạnh",
+      "bóng sưởi"
+    ],
+    "target number": [
+      "76%"
+    ],
+    "time at": [
+      "17 giờ 9 phút"
+    ]
+  },
+  "hủy hoạt cảnh": {
+    "location": [
+      "phòng ngủ",
+      "phòng đọc",
+      "phòng nghỉ ngơi",
+      "tiền sảnh",
+      "phòng tắm",
+      "phòng sinh hoạt chung",
+      "nhà tắm",
+      "phòng chính",
+      "phòng học",
+      "phòng chung",
+      "tầng thượng",
+      "phòng chờ",
+      "sân thượng",
+      "ban công"
+    ],
+    "scene": [
+      "thư giãn",
+      "riêng tư",
+      "đi ngủ",
+      "đi tắm",
+      "tiệc tùng",
+      "ra khỏi phòng",
+      "lãng mạn"
+    ],
+    "duration": [
+      "3 tiếng 37 phút",
+      "4 tiếng 1 phút"
+    ],
+    "time at": [
+      "12 giờ 59 phút",
+      "16 giờ 31 phút"
+    ]
+  },
+  "tăng nhiệt độ của thiết bị": {
+    "command": [
+      "tăng"
+    ],
+    "device": [
+      "lò sưởi",
+      "bình nóng lạnh",
+      "máy lạnh",
+      "lò vi sóng"
+    ],
+    "changing value": [
+      "30 độ c"
+    ],
+    "location": [
+      "phòng vệ sinh hoàng hôn"
+    ],
+    "target number": [
+      "82 độ c",
+      "64 độ c"
+    ],
+    "time at": [
+      "0 giờ 10 phút",
+      "15 giờ 38 phút"
+    ]
+  },
+  "giảm mức độ của thiết bị": {
+    "command": [
+      "giảm"
+    ],
+    "device": [
+      "quạt thông gió",
+      "máy hút ẩm",
+      "quạt hút mùi",
+      "quạt treo tường",
+      "vòi hoa sen",
+      "vòi nước",
+      "quạt trần",
+      "vòi tưới"
+    ],
+    "duration": [
+      "12 tiếng 57 phút",
+      "23 tiếng 22 phút"
+    ],
+    "target number": [
+      "2",
+      "4"
+    ],
+    "location": [
+      "nhà vệ sinh",
+      "phòng tắm xông hơi",
+      "phòng"
+    ],
+    "changing value": [
+      "3"
+    ]
+  },
+  "giảm âm lượng của thiết bị": {
+    "command": [
+      "giảm"
+    ],
+    "device": [
+      "radio",
+      "ti vi"
+    ],
+    "target number": [
+      "65%"
+    ]
+  },
+  "tăng âm lượng của thiết bị": {
+    "command": [
+      "tăng"
+    ],
+    "device": [
+      "máy nghe nhạc",
+      "radio",
+      "ti vi"
+    ],
+    "location": [
+      "phòng thay đồ số 2"
+    ],
+    "target number": [
+      "38%"
+    ],
+    "time at": [
+      "11 giờ 27 phút"
+    ],
+    "changing value": [
+      "31%"
+    ],
+    "duration": [
+      "4 tiếng 44 phút",
+      "23 tiếng 56 phút"
+    ]
+  }
+}

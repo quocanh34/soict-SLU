@@ -1,0 +1,14 @@
+__pycache__/
+asr_norm/
+cache/
+#kenlm/
+soict-hackathon/
+norm/__pycache__/
+norm/cache/
+wav2vec2/__pycache__/
+spelling_vi_norm/__pycache__/
+spelling_vi_norm/cache/
+.gitignore
+.git
+*.log
+*.tmp

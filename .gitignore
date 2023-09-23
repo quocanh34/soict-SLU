@@ -1,0 +1,16 @@
+__pycache__/
+cache/
+# kenlm/
+soict-hackathon/
+norm/__pycache__/
+norm/cache/
+wav2vec2/__pycache__/
+spelling_vi_norm/__pycache__/
+spelling_vi_norm/cache/
+asr_norm/
+test-docker/
+soict_hackathon_JointIDSF/__pycache__/
+
+
+
+
