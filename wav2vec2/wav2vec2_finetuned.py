@@ -16,3 +16,9 @@ class Wav2Vec2_finetuned():
     def get_model(self):
         model = SourceFileLoader("model", cached_path(hf_bucket_url(self.model_path,filename="model_handling.py"))).load_module().Wav2Vec2ForCTC.from_pretrained(self.model_path)
         self.model = model
+
+    def get_device(self):
+        if torch.cuda.is_available():
+            self.device = "cuda"
+        else:
+            self.device = "cpu"

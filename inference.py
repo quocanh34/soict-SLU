@@ -12,12 +12,12 @@ from wav2vec2.wav2vec2_finetuned import Wav2Vec2_finetuned
 
 # Add ASR transcription
 def add_asr_transcription(example):
-    wav2vec2_finetuned.model.to('cuda')
+    wav2vec2_finetuned.model.to(wav2vec2_finetuned.device)
     input_values = wav2vec2_finetuned.processor.feature_extractor(
         example["audio"]["array"],
         sampling_rate=example["audio"]["sampling_rate"],
         return_tensors="pt"
-    ).to("cuda")
+    ).to(wav2vec2_finetuned.device)
 
     with torch.no_grad():
         logits = wav2vec2_finetuned.model(**input_values).logits
@@ -43,6 +43,7 @@ if __name__ == '__main__':
     wav2vec2_finetuned = Wav2Vec2_finetuned(model_path=args.model_path)
     wav2vec2_finetuned.get_processor()
     wav2vec2_finetuned.get_model()
+    wav2vec2_finetuned.get_device()
 
     # Load dataset
     data = load_dataset(args.dataset_path, use_auth_token=args.token)
