@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 def get_device(pred_config):
-    return "cuda" if torch.cuda.is_available() and not pred_config.no_cuda else "cpu"
+    return "cuda:2" if torch.cuda.is_available() and not pred_config.no_cuda else "cpu"
 
 
 def get_args(pred_config):

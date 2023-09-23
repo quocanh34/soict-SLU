@@ -26,7 +26,7 @@ RUN pip install setuptools_rust
 
 WORKDIR /soict_hackathon/kenlm
 RUN sed -i -e 's/\r$//' ./compile_query_only.sh
-RUN ./compile_query_only.sh
+# RUN ./compile_query_only.sh
 WORKDIR /soict_hackathon
 
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
