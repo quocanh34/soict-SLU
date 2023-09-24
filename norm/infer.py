@@ -391,17 +391,6 @@ def format_text(text_input, list_bias_input):
     norm_result = infer([text_input], bias_list)
     return normalize_text(norm_result[0], patterns_to_replace)
 
-# def normalize_text(input_text):
-#     patterns = [
-#         (r'(\d+) %', r'\1%'),
-#         (r'(\d{1,2})h(\d{1,2})', r'\1 giờ \2 phút'),
-#     ]
-#     normalized_text = input_text
-#     for pattern, replacement in patterns:
-#         normalized_text = re.sub(pattern, replacement, normalized_text)
-
-#     return normalized_text
-
 def normalize_text(sentence, patterns_to_replace):
     modified_sentence = sentence
     for pattern, replacement in patterns_to_replace.items():

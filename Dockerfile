@@ -8,10 +8,11 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get install openjdk-8-jdk -y
 RUN apt-get install unzip -y
 RUN apt install -y build-essential cmake libboost-system-dev libboost-thread-dev libboost-program-options-dev libboost-test-dev libeigen3-dev zlib1g-dev libbz2-dev liblzma-dev
-ADD soict_hackathon_JointIDSF/ ./soict_hackathon_JointIDSF
+# ADD soict_hackathon_JointIDSF/ ./soict_hackathon_JointIDSF
+ADD training/ ./training
 ADD norm/ ./norm
 ADD wav2vec2/ ./wav2vec2
-ADD utils/args.py .
+ADD utils/ .utils/
 ADD inference.py .
 ADD requirements.txt .
 ADD scripts/predict.sh .
