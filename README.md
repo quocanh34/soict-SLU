@@ -51,7 +51,7 @@ More training instructions details are in README.md of this folder
 ```bash
 cd training
 chmod 755 -R soict_hackathon_JointIDSF
-cd training/soict_hackathon_JointIDSF
+cd soict_hackathon_JointIDSF
 # before running nlu_train.sh, please delete "rm -rf models", 
 # and delete "rm -rf data_aug_full_0919_22" if these folders exist
 chmod +x nlu_train.sh
