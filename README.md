@@ -23,7 +23,7 @@ python3 ./data_preprocess/prep_data_infer.py --data_path="asr_norm_result_data" 
 python3 predict.py  --input_file="input.txt" --output_file="result.jsonl" --model_dir="./JointIDSF_PhoBERTencoder/new_nlu_50ep_final/4e-5/0.15/100"
 ```
 ```bash
-cd ..
+cd ../..
 ```
 
 # 2. Training
