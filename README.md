@@ -56,6 +56,25 @@ chmod +x nlu_train.sh
 ./nlu_train.sh
 ```
 ## * Reproduce new checkpoint links:
-- ASR: https://huggingface.co/thanhduycao/wav2vec2-finetine-large-synthesis-validate (should delete argument revision in predict.sh)
+- ASR: https://huggingface.co/thanhduycao/wav2vec2-finetine-large-synthesis-validate 
+    - should delete argument "--revision" in predict.sh for new model
+
 - Spoken-norm: https://huggingface.co/linhtran92/finetuned_taggenv2__encoder_embeddings
-- NLU: checkpoint in folder "training/soict_hackathon_JointIDSF/jointIDSF_PhoBERTencoder" (should make it a zip file for the next infer)
+
+- NLU: checkpoint in folder "training/soict_hackathon_JointIDSF/jointIDSF_PhoBERTencoder" 
+    - should make it a zip file for the next infer (folder to zip is jointIDSF_PhoBERTencoder/)
+    - move it to folder soict_hackathon_JointIDSF 
+    - in predict.sh, also need to change the "--model_dir" name after being unzip.
+    - for example: "./new_nlu_50ep_final/4e-5/0.15/100" -> "./<new_model_dir>/4e-5/0.15/100"
+
+
+# 3. ADDITIONAL (synthesis data)
+## 3.1 Installation
+```bash
+cd synthesis-data-for-ASR
+pip install -r requirements.txt
+```
+## 3.2 Create data
+```bash
+python lyric-alignment/predict.py --dataset_links="quocanh34/data_for_synthesis" --output_path=<new-dataset-path> --token=<> --num_workers=1
+```

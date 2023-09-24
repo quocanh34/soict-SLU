@@ -1,0 +1,12 @@
+torch
+torchaudio
+transformers
+datasets
+decorator
+numpy
+regtag
+vinorm
+matplotlib
+tqdm
+librosa
+soundfile
