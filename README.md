@@ -1,6 +1,6 @@
 # 1. Inference
 ## * Note: Checkpoints links
-- ASR: https://huggingface.co/thanhduycao/wav2vec2-large-finetune-aug-on-fly-synthesis-fix-60-epoch-v2/ (revision info in predict.sh)
+- ASR: https://huggingface.co/thanhduycao/wav2vec2-large-finetune-aug-on-fly-synthesis-fix-60-epoch-v2/ (checkpoint info(revision code) in predict.sh)
 - Spoken-norm: https://huggingface.co/linhtran92/finetuned_taggenv2_55epoch_encoder_embeddings
 - NLU: file JointIDSF_PhoBERTencoder.zip in folder training/soict_hackathon_JointIDSF/
 
