@@ -3,7 +3,7 @@ import random
 random.seed(42)
 import py_vncorenlp
 py_vncorenlp.download_model(save_dir='./')
-from utils.args import args
+from args import args
 import re
 import json 
 import os

@@ -1,4 +1,4 @@
-python3 inference.py --dataset_path="quocanh34/soict_test_dataset" --model_path="thanhduycao/wav2vec2-large-finetune-aug-on-fly-synthesis-60-epoch-ver-02" --norm_path="linhtran92/finetuned_taggenv2_55epoch_encoder_embeddings" --token="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" --hgf_infer_result_path="quocanh34/test_result" --local_infer_result_path="soict_hackathon_JointIDSF/asr_norm_result_data" --num_proc=1 --split="train" --revision="fb695560bcb4edb57659f86930dddd959516b650"
+python3 inference.py --dataset_path="quocanh34/soict_test_dataset" --model_path="thanhduycao/wav2vec2-large-finetune-aug-on-fly-synthesis-fix-60-epoch-v2" --norm_path="linhtran92/finetuned_taggenv2_55epoch_encoder_embeddings" --token="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" --hgf_infer_result_path="quocanh34/test_result" --local_infer_result_path="soict_hackathon_JointIDSF/asr_norm_result_data" --num_proc=1 --split="train" --revision="fb695560bcb4edb57659f86930dddd959516b650"
 
 cd training/soict_hackathon_JointIDSF
 
