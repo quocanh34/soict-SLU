@@ -8,6 +8,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 git clone https://github.com/huggingface/tokenizers
 cd tokenizers/bindings/python
 pip install setuptools_rust
-python setup.py install
+#python setup.py install
 cd ../../..
 pip install -r requirements.txt 
