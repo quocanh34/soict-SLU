@@ -12,7 +12,7 @@ RUN apt install -y build-essential cmake libboost-system-dev libboost-thread-dev
 ADD training/ ./training
 ADD norm/ ./norm
 ADD wav2vec2/ ./wav2vec2
-ADD utils/ .utils/
+ADD utils/ ./utils
 ADD inference.py .
 ADD requirements.txt .
 ADD scripts/predict.sh .
