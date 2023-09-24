@@ -39,7 +39,7 @@ cd training/ASR-Wav2vec-Finetune
 chmod +x asr_train.sh
 ./asr_train.sh
 ```
-## 2.2 Train Spoken-norm
+## 2.2 Train spoken-norm
 More training instructions details are in README.md of this folder
 ```bash
 cd training/norm-tuned
@@ -76,5 +76,11 @@ pip install -r requirements.txt
 ```
 ## 3.2 Create data
 ```bash
-python lyric-alignment/predict.py --dataset_links="quocanh34/data_for_synthesis" --output_path=<new-dataset-path> --token=<> --num_workers=1
+CUDA_VISIBLE_DEVICES=0 python create_transcription_wer.py --data_links="thanhduycao/soict_train_dataset" --output_path="thanhduycao/soict_train_dataset_with_wer_validate" --token="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" --num_workers=2
+
+CUDA_VISIBLE_DEVICES=0 python lyric-alignment/predict.py --data_links="thanhduycao/soict_train_dataset_with_wer_validate" --output_path="thanhduycao/data_for_synthesis_with_entities_align_v5_validate" --token="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" --num_workers=4
+
+CUDA_VISIBLE_DEVICES=0 python create_entity_dataset.py --data_links="thanhduycao/data_for_synthesis_with_entities_align_v5_validate" --output_path="thanhduycao/data_for_synthesis_entities_validate" --token="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" --num_workers=1
+
+CUDA_VISIBLE_DEVICES=0 python create_synthesis_dataset.py --data_links="thanhduycao/data_for_synthesis_with_entities_align_v5_validate" --output_path="thanhduycao/data_synthesis_validate" --token="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" --num_workers=1
 ```
