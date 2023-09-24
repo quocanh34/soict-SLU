@@ -2,7 +2,7 @@ import py_vncorenlp
 py_vncorenlp.download_model(save_dir='./')
 from datasets import load_dataset, load_from_disk
 import pandas as pd
-from utils.args import args
+from args import args
 
 def word_segmentation(example):
     example[args.text_column] = rdrsegmenter.word_segment(example[args.text_column])[0]

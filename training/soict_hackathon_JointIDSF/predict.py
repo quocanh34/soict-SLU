@@ -13,10 +13,11 @@ logger = logging.getLogger(__name__)
 
 
 def get_device(pred_config):
-    current_device = torch.cuda.current_device()
-    if torch.cuda.is_available() and not pred_config.no_cuda:
-        return f"cuda:{current_device}"
-    else:
+    try:
+        current_device = torch.cuda.current_device()
+        if torch.cuda.is_available() and not pred_config.no_cuda:
+            return f"cuda:{current_device}"
+    except:
         return "cpu"
 
 

@@ -52,6 +52,8 @@ More training instructions details are in README.md of this folder
 cd training
 chmod 755 -R soict_hackathon_JointIDSF
 cd training/soict_hackathon_JointIDSF
+# before running nlu_train.sh, please delete "rm -rf models", 
+# and delete "rm -rf data_aug_full_0919_22" if these folders exist
 chmod +x nlu_train.sh
 ./nlu_train.sh
 ```
@@ -83,4 +85,13 @@ CUDA_VISIBLE_DEVICES=0 python lyric-alignment/predict.py --data_links="thanhduyc
 CUDA_VISIBLE_DEVICES=0 python create_entity_dataset.py --data_links="thanhduycao/data_for_synthesis_with_entities_align_v5_validate" --output_path="thanhduycao/data_for_synthesis_entities_validate" --token="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" --num_workers=1
 
 CUDA_VISIBLE_DEVICES=0 python create_synthesis_dataset.py --data_links="thanhduycao/data_for_synthesis_with_entities_align_v5_validate" --output_path="thanhduycao/data_synthesis_validate" --token="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" --num_workers=1
+```
+
+```bash
+After running all commands in order, 
+we will have the data entity synthesis from: thanhduycao/data_for_synthesis_entities_validate 
+and data swap entities synthesis from: thanhduycao/data_synthesis_validate 
+These two dataset will be concatenated 
+with the original dataset in
+this notebook: https://drive.google.com/drive/folders/1xJJduA3QcEBiCsKuesfoWdM3RPuaCEw0
 ```
