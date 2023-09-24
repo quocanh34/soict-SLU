@@ -23,5 +23,17 @@ cd ..
 
 # 2. Training
 ## 2.1 Train ASR
+More training instructions is in README.md of this folder
+```bash
+cd training/ASR-Wav2vec-Finetune
+```
 ## 2.2 Train Spoken-norm
+More training instructions is in README.md of this folder
+```bash
+cd training/norm-finetuned
+```
 ## 2.3 Train NLU 
+More training instructions is in README.md of this folder
+```bash
+cd training/soict_hackathon_JointIDSF
+```
