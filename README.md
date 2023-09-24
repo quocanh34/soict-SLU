@@ -6,8 +6,8 @@
 
 ## 1.0 Run all using .sh file
 ```bash
-chmod +x scripts/predict.sh
-./scripts/predict.sh
+chmod +x predict.sh
+./predict.sh
 ```
 ## * Note: In case step 1.0 doesn't work, follow these commands:
 ## 1.1 Run ASR and spoken-norm model
