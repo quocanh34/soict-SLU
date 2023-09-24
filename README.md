@@ -25,7 +25,7 @@ unzip JointIDSF_PhoBERTencoder.zip
 python3 ./data_preprocess/prep_data_infer.py --data_path="asr_norm_result_data" --text_column="pred_str_norm" --split_name="train"
 ```
 ```bash
-python3 predict.py  --input_file="input.txt" --output_file="predictions.jsonl" --model_dir="./JointIDSF_PhoBERTencoder/new_nlu_50ep_final/4e-5/0.15/100"
+python3 predict.py  --input_file="input.txt" --output_file="predictions.jsonl" --model_dir="./new_nlu_50ep_final/4e-5/0.15/100"
 ```
 ```bash
 cd ../..
