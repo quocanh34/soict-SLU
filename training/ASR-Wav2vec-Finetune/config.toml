@@ -2,7 +2,7 @@
 name = "ASR"
 pretrained_path = "nguyenvulebinh/wav2vec2-large-vi-vlsp2020"
 seed = 42
-epochs = 60
+epochs = 20
 save_dir = "saved/"
 gradient_accumulation_steps = 4
 use_amp = false # Whether to use Automatic Mixed Precision for speeding up - https://pytorch.org/docs/stable/amp.html
@@ -33,7 +33,7 @@ local_dir = "wav2vec2_finetune_aug_on_fly" # where your repo places in local
 use_auth_token = "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" # you must provide the auth_token of your huggingface account.
 git_user = "thanhduycao"
 git_email = "ctduy20@apcs.fitus.edu.vn"
-clone_from = "https://huggingface.co/thanhduycao/wav2vec2-large-finetune-aug-on-fly-synthesis-60-epoch" # path to your repo in huggingface
+clone_from = "https://huggingface.co/thanhduycao/wav2vec2-finetine-large-synthesis-validate" # path to your repo in huggingface
 
 
 [train_dataset]

@@ -1,9 +1,0 @@
-sentencepiece
-transformers==4.28.1   
-datasets==1.17.0
-sacrebleu
-jiwer
-regtag
-validators
-torch
-matplotlib

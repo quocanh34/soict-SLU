@@ -33,19 +33,29 @@ cd ../..
 
 # 2. Training
 ## 2.1 Train ASR
-More training instructions is in README.md of this folder
+More training instructions details are in README.md of this folder
 ```bash
 cd training/ASR-Wav2vec-Finetune
+chmod +x asr_train.sh
+./asr_train.sh
 ```
 ## 2.2 Train Spoken-norm
-More training instructions is in README.md of this folder
+More training instructions details are in README.md of this folder
 ```bash
 cd training/norm-tuned
+chmod +x norm_train.sh
+./norm_train.sh
 ```
 ## 2.3 Train NLU 
-More training instructions is in README.md of this folder
+More training instructions details are in README.md of this folder
 ```bash
 cd training
 chmod 755 -R soict_hackathon_JointIDSF
 cd training/soict_hackathon_JointIDSF
+chmod +x nlu_train.sh
+./nlu_train.sh
 ```
+## * Reproduce new checkpoint links:
+- ASR: https://huggingface.co/thanhduycao/wav2vec2-finetine-large-synthesis-validate (should delete argument revision in predict.sh)
+- Spoken-norm: https://huggingface.co/linhtran92/finetuned_taggenv2__encoder_embeddings
+- NLU: checkpoint in folder "training/soict_hackathon_JointIDSF/jointIDSF_PhoBERTencoder" (should make it a zip file for the next infer)

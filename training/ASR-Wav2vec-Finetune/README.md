@@ -42,7 +42,8 @@ pip install -r requirements.txt
 3. Run
 - Sh command
     ```
-    bash train.sh
+    chmod +x asr_train.sh
+    ./asr_train.sh
     ```
 Detail script if run sh fail:
 - Create save folder
