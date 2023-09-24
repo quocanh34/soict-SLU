@@ -40,7 +40,7 @@ def add_norm(example):
 if __name__ == '__main__':
 
     # Load model and processor
-    wav2vec2_finetuned = Wav2Vec2_finetuned(model_path=args.model_path)
+    wav2vec2_finetuned = Wav2Vec2_finetuned(model_path=args.model_path, revision=args.revision)
     wav2vec2_finetuned.get_processor()
     wav2vec2_finetuned.get_model()
     wav2vec2_finetuned.get_device()
