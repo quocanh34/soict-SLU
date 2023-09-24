@@ -18,7 +18,8 @@ class Wav2Vec2_finetuned():
         self.model = model
 
     def get_device(self):
+        current_device = torch.cuda.current_device()
         if torch.cuda.is_available():
-            self.device = "cuda:2"
+            self.device = f"cuda:{current_device}"
         else:
             self.device = "cpu"
