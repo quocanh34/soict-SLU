@@ -10,6 +10,14 @@
 
 - Link to the model zip: https://drive.google.com/drive/folders/1SXvzXiHb-0OI4c7PfYpfmxO_oVQxO-s-?usp=sharing
 
+```bash
+#set up requirements
+chmod +x scripts/run_commands.sh
+scripts/run_commands.sh
+```
+
+```bash
+
 
 ```bash
 chmod +x scripts/predict.sh
