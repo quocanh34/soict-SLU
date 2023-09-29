@@ -6,13 +6,16 @@
 
 ## 1.0 Run all using .sh file
 ```bash
-chmod +x predict.sh
-./predict.sh
+chmod +x scripts/predict.sh
+scripts/predict.sh
+```
+```bash
+The results will be in folder training/soict_hackathon_JointIDSF/ under file name "predictions.jsonl"
 ```
 ## * Note: In case step 1.0 doesn't work, follow these commands:
 ## 1.1 Run ASR and spoken-norm model
 ```bash
-python3 inference.py --dataset_path="quocanh34/soict_test_dataset" --model_path="thanhduycao/wav2vec2-finetune-aug-on-fly-60-epoch-ver-02" --norm_path="linhtran92/finetuned_taggenv2_60epoch_encoder_embeddings" --token="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" --hgf_infer_result_path="quocanh34/test_result" --local_infer_result_path="asr_norm_result_data" --num_proc=1 --split="train" --revision="fb695560bcb4edb57659f86930dddd959516b650"
+python3 inference.py --dataset_path="quocanh34/soict_test_dataset" --model_path="thanhduycao/wav2vec2-finetune-aug-on-fly-60-epoch-ver-02" --norm_path="linhtran92/finetuned_taggenv2_60epoch_encoder_embeddings" --token="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" --hgf_infer_result_path="quocanh34/test_result" --local_infer_result_path="training/soict_hackathon_JointIDSF/asr_norm_result_data" --num_proc=1 --split="train" --revision="fb695560bcb4edb57659f86930dddd959516b650"
 ```
 ## 1.2 Run NLU model
 ```bash
@@ -52,7 +55,8 @@ More training instructions details are in README.md of this folder
 cd training
 chmod 755 -R soict_hackathon_JointIDSF
 cd soict_hackathon_JointIDSF
-# before running nlu_train.sh, please delete "rm -rf models", 
+#(important)
+# before running nlu_train.sh, make sure to delete "rm -rf models", 
 # and delete "rm -rf data_aug_full_0919_22" if these folders exist
 chmod +x nlu_train.sh
 ./nlu_train.sh
