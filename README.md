@@ -90,7 +90,7 @@ cd ../..
     - for example: "./new_nlu_50ep_final/4e-5/0.15/100" -> "./<new_model_dir>/4e-5/0.15/100"
 
 
-# 3. ADDITIONAL (synthesis data)
+# 3. Additional (synthesis data)
 ## 3.1 Installation
 ```bash
 cd synthesis-data-for-ASR
