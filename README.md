@@ -17,9 +17,6 @@ scripts/run_commands.sh
 ```
 
 ```bash
-
-
-```bash
 chmod +x scripts/predict.sh
 scripts/predict.sh
 ```
