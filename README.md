@@ -52,6 +52,7 @@ More training instructions details are in README.md of this folder
 cd training/ASR-Wav2vec-Finetune
 chmod +x asr_train.sh
 ./asr_train.sh
+cd ../..
 ```
 ## 2.2 Train spoken-norm
 More training instructions details are in README.md of this folder
@@ -59,6 +60,7 @@ More training instructions details are in README.md of this folder
 cd training/norm-tuned
 chmod +x norm_train.sh
 ./norm_train.sh
+cd ../..
 ```
 ## 2.3 Train NLU 
 More training instructions details are in README.md of this folder
@@ -69,8 +71,11 @@ cd soict_hackathon_JointIDSF
 #(important)
 # before running nlu_train.sh, make sure to delete "rm -rf models", 
 # and delete "rm -rf data_aug_full_0919_22" if these folders exist
+!rm -rf models/
+!rm -rf data_aug_full_0919_22/
 chmod +x nlu_train.sh
 ./nlu_train.sh
+cd ../..
 ```
 ## * Reproduce new checkpoint links:
 - ASR: https://huggingface.co/thanhduycao/wav2vec2-finetine-large-synthesis-validate 
