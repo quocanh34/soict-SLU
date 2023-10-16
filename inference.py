@@ -31,11 +31,13 @@ def add_asr_transcription(example):
     torch.cuda.empty_cache()
     return example
 
+# bias_list = "giờ\nphút\n%\ngarage | gara | ga ra | ca ra\ncompact | com pác | com pắc\ncafe | cà phê\nwc | vê kép xê\ngym | jim | dim | rim"
+
 # Add norm of ASR transcription
 def add_norm(example):
-    example['pred_str_norm'] = format_text(example['pred_str'].lower(), "giờ, phút, %")
+    bias_list = "giờ\nphút\n%\ngarage | gara | ga ra | ca ra\ncompact | com pác | com pắc\ncafe | cà phê\nwc | vê kép xê\ngym | jim | dim | rim"
+    example['pred_str_norm'] = format_text(example['pred_str'].lower(), bias_list)
     return example
-
 
 if __name__ == '__main__':
 
