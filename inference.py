@@ -65,7 +65,7 @@ if __name__ == '__main__':
 
     # Load dataset
     data = load_dataset(args.dataset_path, use_auth_token=args.token)
-    
+
     # Map transcription and norm
     result = data[args.split].map(add_asr_transcription, num_proc=int(args.num_proc))
     result = result.map(add_norm, num_proc=int(args.num_proc))
@@ -78,4 +78,4 @@ if __name__ == '__main__':
     result_dict.save_to_disk(args.local_infer_result_path)
 
     # Push the result
-    result_dict.push_to_hub(args.hgf_infer_result_path, token=args.token) 
+    # result_dict.push_to_hub(args.hgf_infer_result_path, token=args.token) 
