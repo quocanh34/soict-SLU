@@ -9,6 +9,7 @@ from norm.infer import format_text
 from jiwer import wer
 from utils.args import args
 from wav2vec2.wav2vec2_finetuned import Wav2Vec2_finetuned
+from denoiser_fb.denoiser_fb import Denoiser
 
 # Add ASR transcription
 def add_asr_transcription(example):
@@ -20,10 +21,20 @@ def add_asr_transcription(example):
     ).to(wav2vec2_finetuned.device)
 
     with torch.no_grad():
+        raw_denoised_logits = denoise.refactor_audio(example["audio"])
+        denoised_audio_array = denoise.denoise_audio(raw_denoised_logits)
         logits = wav2vec2_finetuned.model(**input_values).logits
+        logits_with_denoise = wav2vec2_finetuned.model(denoised_audio_array).logits
 
-    pred_ids = torch.argmax(logits, dim=-1)
-    example["pred_str"] = wav2vec2_finetuned.processor.decode(logits.cpu().detach().numpy()[0], beam_width=100).text
+    prediction = wav2vec2_finetuned.processor.decode(logits.cpu().detach().numpy()[0], beam_width=100).text
+    prediction_with_denoise = wav2vec2_finetuned.processor.decode(logits_with_denoise.cpu().detach().numpy()[0], beam_width=100).text
+
+    if len(prediction_with_denoise.split()) < len(prediction.split()):
+        final_prediction = prediction
+    else:
+        final_prediction = prediction_with_denoise
+
+    example["pred_str"] = final_prediction
 
     # Empty cuda
     del input_values
@@ -41,11 +52,16 @@ def add_norm(example):
 
 if __name__ == '__main__':
 
-    # Load model and processor
+    # Load ASR model and processor
     wav2vec2_finetuned = Wav2Vec2_finetuned(model_path=args.model_path, revision=args.revision)
     wav2vec2_finetuned.get_processor()
     wav2vec2_finetuned.get_model()
     wav2vec2_finetuned.get_device()
+
+    # Load Denoise model
+    denoise = Denoiser()
+    denoise.get_device()
+    denoise.get_model()
 
     # Load dataset
     data = load_dataset(args.dataset_path, use_auth_token=args.token)
@@ -58,8 +74,8 @@ if __name__ == '__main__':
     result.remove_columns(['audio'])
     result_dict = DatasetDict({"train": result})
 
-    print(result_dict)
+    # print(result_dict)
     result_dict.save_to_disk(args.local_infer_result_path)
 
     # Push the result
-    # result_dict.push_to_hub(args.hgf_infer_result_path, token=args.token) 
+    result_dict.push_to_hub(args.hgf_infer_result_path, token=args.token) 

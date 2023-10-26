@@ -10,6 +10,8 @@ spelling_vi_norm/cache/
 asr_norm/
 test-docker/
 soict_hackathon_JointIDSF/__pycache__/
+soict-slu/
+denoiser_fb/__pycache__/
 
 
 
