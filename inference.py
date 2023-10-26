@@ -23,11 +23,21 @@ def add_asr_transcription(example):
     with torch.no_grad():
         raw_denoised_logits = denoise.refactor_audio(example["audio"])
         denoised_audio_array = denoise.denoise_audio(raw_denoised_logits)
+        
+        input_values_denoise = wav2vec2_finetuned.processor.feature_extractor(
+            denoised_audio_array[0],
+            sampling_rate=example["audio"]["sampling_rate"],
+            return_tensors="pt"
+        ).to(wav2vec2_finetuned.device)
+
         logits = wav2vec2_finetuned.model(**input_values).logits
-        logits_with_denoise = wav2vec2_finetuned.model(denoised_audio_array).logits
+        logits_with_denoise = wav2vec2_finetuned.model(**input_values_denoise).logits
 
     prediction = wav2vec2_finetuned.processor.decode(logits.cpu().detach().numpy()[0], beam_width=100).text
     prediction_with_denoise = wav2vec2_finetuned.processor.decode(logits_with_denoise.cpu().detach().numpy()[0], beam_width=100).text
+
+    print(f"prediction: {prediction}")
+    print(f"prediction_with_denoise: {prediction_with_denoise}")
 
     if len(prediction_with_denoise.split()) < len(prediction.split()):
         final_prediction = prediction
@@ -39,6 +49,7 @@ def add_asr_transcription(example):
     # Empty cuda
     del input_values
     del logits
+    del logits_with_denoise
     torch.cuda.empty_cache()
     return example
 
