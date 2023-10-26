@@ -33,13 +33,13 @@ def add_asr_transcription(example):
         logits = wav2vec2_finetuned.model(**input_values).logits
         logits_with_denoise = wav2vec2_finetuned.model(**input_values_denoise).logits
 
-    prediction = wav2vec2_finetuned.processor.decode(logits.cpu().detach().numpy()[0], beam_width=100).text
+    prediction = wav2vec2_finetuned.processor.decode(logits.cpu().detach().numpy()[0], beam_width=500).text
     prediction_with_denoise = wav2vec2_finetuned.processor.decode(logits_with_denoise.cpu().detach().numpy()[0], beam_width=100).text
 
     print(f"prediction: {prediction}")
     print(f"prediction_with_denoise: {prediction_with_denoise}")
 
-    if len(prediction_with_denoise.split()) < len(prediction.split()):
+    if len(prediction_with_denoise) < len(prediction):
         final_prediction = prediction
     else:
         final_prediction = prediction_with_denoise
@@ -76,7 +76,7 @@ if __name__ == '__main__':
 
     # Load dataset
     data = load_dataset(args.dataset_path, use_auth_token=args.token)
-
+    # test_data = data[args.split].select([131])
     # Map transcription and norm
     result = data[args.split].map(add_asr_transcription, num_proc=int(args.num_proc))
     result = result.map(add_norm, num_proc=int(args.num_proc))
