@@ -36,10 +36,10 @@ def add_asr_transcription(example):
     prediction = wav2vec2_finetuned.processor.decode(logits.cpu().detach().numpy()[0], beam_width=500).text
     prediction_with_denoise = wav2vec2_finetuned.processor.decode(logits_with_denoise.cpu().detach().numpy()[0], beam_width=100).text
 
-    print(f"prediction: {prediction}")
-    print(f"prediction_with_denoise: {prediction_with_denoise}")
+    print(f"prediction: {prediction} | with length {len(prediction)}")
+    print(f"prediction_with_denoise: {prediction_with_denoise} | with length {len(prediction_with_denoise)}")
 
-    if len(prediction_with_denoise) < len(prediction):
+    if len(prediction_with_denoise) <= len(prediction):
         final_prediction = prediction
     else:
         final_prediction = prediction_with_denoise
@@ -59,6 +59,7 @@ def add_asr_transcription(example):
 def add_norm(example):
     bias_list = "giờ\nphút\n%\ngarage | gara | ga ra | ca ra\ncompact | com pác | com pắc\ncafe | cà phê\nwc | vê kép xê\ngym | jim | dim | rim"
     example['pred_str_norm'] = format_text(example['pred_str'].lower(), bias_list)
+    print(example['pred_str_norm'])
     return example
 
 if __name__ == '__main__':
@@ -76,7 +77,7 @@ if __name__ == '__main__':
 
     # Load dataset
     data = load_dataset(args.dataset_path, use_auth_token=args.token)
-    # test_data = data[args.split].select([131])
+    # test_data = data[args.split].select([262])
     # Map transcription and norm
     result = data[args.split].map(add_asr_transcription, num_proc=int(args.num_proc))
     result = result.map(add_norm, num_proc=int(args.num_proc))
@@ -89,4 +90,4 @@ if __name__ == '__main__':
     result_dict.save_to_disk(args.local_infer_result_path)
 
     # Push the result
-    # result_dict.push_to_hub(args.hgf_infer_result_path, token=args.token) 
+    result_dict.push_to_hub(args.hgf_infer_result_path, token=args.token) 

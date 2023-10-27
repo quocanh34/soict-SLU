@@ -377,9 +377,11 @@ patterns_to_replace = {
     r'ra +đi +ô': 'radio',
     r'[jr]im': 'gym',
     r'độ +xê': 'độ c',
+    r'độ +oc': 'độ c',
     r'oc': "độ c",
     r'láp +tóp': "laptop",
     r"lét": "led",
+    r" răm": " trăm",
     r'(\d+)h(\d+)p': r'\1 giờ \2 phút',
     r'(\d+)h(\d+)': r'\1 giờ \2 phút',
     r"(\d+)h": r"\1 giờ "
@@ -393,6 +395,8 @@ def format_text(text_input, list_bias_input):
 
 def normalize_text(sentence, patterns_to_replace):
     modified_sentence = sentence
+    #test
+    print(sentence)
     for pattern, replacement in patterns_to_replace.items():
         modified_sentence = re.sub(pattern, replacement, modified_sentence)
     return modified_sentence
