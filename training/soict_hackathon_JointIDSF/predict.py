@@ -1,6 +1,9 @@
 import argparse
 import logging
 import os
+import datasets
+import pandas as pd
+from datasets.load import load_from_disk
 
 import numpy as np
 import torch
@@ -8,6 +11,8 @@ from torch.utils.data import DataLoader, SequentialSampler, TensorDataset
 from tqdm import tqdm
 from utils import MODEL_CLASSES, get_intent_labels, get_slot_labels, init_logger, load_tokenizer
 import jsonlines
+
+from datasets import Dataset
 
 logger = logging.getLogger(__name__)
 
@@ -266,7 +271,18 @@ def predict(pred_config):
             "file": file_name
         }
         opts.append(opt)
+    try:
+      norm_dataset = load_from_disk("asr_norm_result_data")["train"]
+      nlu_ds = datasets.Dataset.from_pandas(pd.DataFrame(data=opts))
 
+      norm_dataset = norm_dataset.add_column('intent', nlu_ds['intent'])
+      norm_dataset = norm_dataset.add_column('entities', nlu_ds['entities'])
+      norm_dataset = norm_dataset.add_column('file', nlu_ds['file'])
+
+      norm_dataset.push_to_hub("quocanh34/private_prediction_2", token="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") 
+    except:
+      pass
+      
     with jsonlines.open(pred_config.output_file, 'w') as writer:
         writer.write_all(opts)
 
