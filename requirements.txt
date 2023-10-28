@@ -31,3 +31,12 @@ scikit_learn==1.0.2
 toml==0.10.2
 audiomentations
 denoiser
+pytorch-lightning
+rouge-score
+nltk
+py7zr
+wheel
+evaluate
+unidecode
+lion_pytorch
+accelerate>=0.20.1
