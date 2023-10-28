@@ -46,7 +46,7 @@ def add_asr_transcription(example):
           final_prediction = prediction_with_denoise
 
       if final_prediction == "":
-        example["pred_str"] = "No Speech"
+        example["pred_str"] = ""
       else:
         example["pred_str"] = final_prediction
 
@@ -92,13 +92,7 @@ if __name__ == '__main__':
     data = load_dataset(args.dataset_path, use_auth_token=args.token)
 
     # Map transcription and norm
-    selected_sample = list(range(1995))
-    test_data = data[args.split].select(selected_sample)
-
-    # numbers = list(range(2140))
-    # selected_samples = numbers[:1999] + numbers[2000:]
-
-    result = test_data.map(add_asr_transcription, num_proc=int(args.num_proc))
+    result = data[args.split].map(add_asr_transcription, num_proc=int(args.num_proc))
     result = result.map(add_norm, num_proc=int(args.num_proc))
 
     #Remove unneeded columns
