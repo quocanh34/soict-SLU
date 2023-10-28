@@ -6,7 +6,7 @@ from sentence_transformers import SentenceTransformer, util
 from pyvi.ViTokenizer import tokenize
 import re
 from collections import Counter
-
+import copy
 
 # Define Augmentation Process
 @lru_cache(maxsize=None)
@@ -50,7 +50,7 @@ def augment_and_correct_all(sample, augmentation_ratio=0.5):
     if random.random() > augmentation_ratio:
         return None
 
-    augmented_sample = sample.copy()
+    augmented_sample = copy.deepcopy(sample)
     original_annotation = sample['sentence_annotation']
     annotation = original_annotation
 
