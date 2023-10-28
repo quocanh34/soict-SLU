@@ -21,6 +21,8 @@ ADD .dockerignore .
 ADD scripts/run_commands.sh .
 ADD kenlm/ ./kenlm
 ADD tokenizers/ ./tokenizers
+ADD denoiser_fb/ ./denoiser_fb
+ADD synthesis-data-for-ASR/ ./synthesis-data-for-ASR
 
 RUN pip install --upgrade pip
 RUN pip install setuptools_rust
