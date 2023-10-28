@@ -8,7 +8,7 @@
 
 - Download JointIDSF model and move it to the folder training/soict_hackathon_JointIDSF/
 
-- Link to the model zip: https://drive.google.com/drive/folders/1SXvzXiHb-0OI4c7PfYpfmxO_oVQxO-s-?usp=sharing
+- Link to the model zip: https://drive.google.com/file/d/1JQmzcAxoR5gvwoHMRc2fS86i2dBHnsb3/view?usp=sharing
 
 ```bash
 #set up requirements
