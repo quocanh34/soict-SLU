@@ -279,7 +279,7 @@ def predict(pred_config):
       norm_dataset = norm_dataset.add_column('entities', nlu_ds['entities'])
       norm_dataset = norm_dataset.add_column('file', nlu_ds['file'])
 
-      norm_dataset.push_to_hub("quocanh34/best_tts3_new_nlu_denoise", token="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") 
+    #   norm_dataset.push_to_hub("quocanh34/best_tts3_new_nlu_denoise", token="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")
     except:
       pass
       
