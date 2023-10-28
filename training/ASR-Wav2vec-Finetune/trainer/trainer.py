@@ -34,6 +34,7 @@ class Trainer(BaseTrainer):
         gradient_accumulation_steps,
         use_amp,
         max_clip_grad_norm,
+        is_val,
     ):
         super(Trainer, self).__init__(
             dist,
@@ -60,6 +61,7 @@ class Trainer(BaseTrainer):
         self.sr = config["meta"]["sr"]
         self.n_gpus = n_gpus
         self.max_clip_grad_norm = max_clip_grad_norm
+        self.is_val = is_val
         self.stateful_metrics = [
             "train_loss",
             "train_lr",
@@ -100,6 +102,23 @@ class Trainer(BaseTrainer):
             resume_pbar = tqdm(total=self.resume_step + 1)
 
         for dl_step, batch in enumerate(self.train_dl):
+            # T_mult = 1
+            # if epoch == 5:
+            #     T_0 = len(self.train_dl) * 3
+            #     self.scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(self.optimizer, T_0=T_0, T_mult=T_mult)
+            # elif epoch == 8:
+            #     T_0 = len(self.train_dl) * 3
+            #     self.scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(self.optimizer, T_0=T_0, T_mult=T_mult)
+
+            # # Adjust the peak learning rate based on the cycle
+            # if epoch < 5:
+            #     self.scheduler.eta_max = 4e-5
+            # elif epoch < 8:
+            #     self.scheduler.eta_max = 3e-5
+            # else:
+            #     self.scheduler.eta_max = 2e-5
+
+
             if self.resume_step >= 0:
                 self.resume_step -= 1
                 if self.rank == 0:
@@ -170,25 +189,31 @@ class Trainer(BaseTrainer):
                     pbar.update(self.pbar_step + 1, "train_", train_logs)
 
                 # Evaluation
-                if (self.completed_steps + 1) % self.validation_interval == 0:
-                    if self.rank == 0:
-                        print("\nValidation is in progress...")
-                    self.model.eval()
-                    val_logs = self._valid_epoch(self.completed_steps)
+                if (self.is_val != "false"):
+                    if (self.completed_steps + 1) % self.validation_interval == 0:
+                        if self.rank == 0:
+                            print("\nValidation is in progress...")
+                        self.model.eval()
+                        val_logs = self._valid_epoch(self.completed_steps)
 
-                    if self.rank == 0:
-                        # write val logs
-                        self.writer.update(self.completed_steps, "Validation", val_logs)
-                        pbar.update(self.pbar_step + 1, "val_", val_logs)
+                        if self.rank == 0:
+                            # write val logs
+                            self.writer.update(self.completed_steps, "Validation", val_logs)
+                            pbar.update(self.pbar_step + 1, "val_", val_logs)
 
-                        # Save best
-                        if self._is_best_epoch(
-                            val_logs["wer"],
-                            save_max_metric_score=self.save_max_metric_score,
-                        ):
+                            # Save best
+                            if self._is_best_epoch(
+                                val_logs["wer"],
+                                save_max_metric_score=self.save_max_metric_score,
+                            ):
+                                self._save_checkpoint(epoch, dl_step, is_best_epoch=True)
+
+                        self.dist.barrier()  # see https://stackoverflow.com/questions/59760328/how-does-torch-distributed-barrier-work
+                else:
+                    if (self.completed_steps + 1) % self.validation_interval == 0:
+                        if self.rank == 0:
+                            print("\nSave checkpoint is in progress...")
                             self._save_checkpoint(epoch, dl_step, is_best_epoch=True)
-
-                    self.dist.barrier()  # see https://stackoverflow.com/questions/59760328/how-does-torch-distributed-barrier-work
                 self.pbar_step += 1
                 self.completed_steps += 1
 

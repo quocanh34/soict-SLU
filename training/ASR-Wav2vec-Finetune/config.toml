@@ -2,13 +2,14 @@
 name = "ASR"
 pretrained_path = "nguyenvulebinh/wav2vec2-large-vi-vlsp2020"
 seed = 42
-epochs = 20
+epochs = 30
 save_dir = "saved/"
 gradient_accumulation_steps = 4
 use_amp = false # Whether to use Automatic Mixed Precision for speeding up - https://pytorch.org/docs/stable/amp.html
 device_ids = "0" # set the gpu devices on which you want to train your model
 sr = 16000
 max_clip_grad_norm = 5.0 # torch.nn.utils.clip_grad_norm_
+is_val = "false"
 
 [special_tokens]
 bos_token = "<bos>"
@@ -30,16 +31,16 @@ blocking = false # whether to wait until the model is uploaded (this will be ver
 # Otherwise you need to run ```huggingface-cli login``` command to log in
 [huggingface.args]
 local_dir = "wav2vec2_finetune_aug_on_fly" # where your repo places in local
-use_auth_token = "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" # you must provide the auth_token of your huggingface account.
+use_auth_token = "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" # you must provide the auth_token of your huggingface account.
 git_user = "thanhduycao"
 git_email = "ctduy20@apcs.fitus.edu.vn"
-clone_from = "https://huggingface.co/thanhduycao/wav2vec2-finetine-large-synthesis-validate" # path to your repo in huggingface
+clone_from = "https://huggingface.co/thanhduycao/wav2vec2-large-finetune-aug-on-fly-synthesis-tts-all-v2" # path to your repo in huggingface
 
 
 [train_dataset]
 path = "base.base_dataset.BaseDataset"
 [train_dataset.args]
-path = "datasets/train.csv"
+path = "datasets/train_shuffle.csv"
 preload_data = false
 delimiter = "|"
 # Only train audio files that have duration in range [min_duration, max_duration]
@@ -76,15 +77,15 @@ drop_last = false
 
 
 [optimizer]
-lr = 8e-5
+lr = 4e-6
 
 
 [scheduler]
-max_lr = 1e-4
+max_lr = 4e-5
 
 
 [trainer]
 path = "trainer.trainer.Trainer"
 [trainer.args]
-validation_interval = 500
+validation_interval = 600
 save_max_metric_score = false

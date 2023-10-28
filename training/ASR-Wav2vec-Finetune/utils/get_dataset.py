@@ -24,17 +24,18 @@ def generate_csv_from_dataset(zip_data, csv_file_path):
     # Write data to CSV using "|" as delimiter
     with open(csv_file_path, "w", newline="", encoding="utf-8") as csv_file:
         csv_writer = csv.writer(csv_file, delimiter="|")
-        csv_writer.writerow(["path", "transcript"])  # Write header
+        csv_writer.writerow(["path", "transcript", "wer"])  # Write header
         csv_writer.writerows(zip_data)
 
 
-def generate_zip_id_sentence(ds, id_name, sentence_name, data_path):
+def generate_zip_id_sentence_wer(ds, id_name, sentence_name, wer_name, data_path):
     ids = ds[id_name]
     sentences = ds[sentence_name]
+    wer = ds[wer_name]
 
     for i in range(len(ids)):
         ids[i] = data_path + ids[i] + ".wav"
-    data = zip(ids, sentences)
+    data = zip(ids, sentences, wer)
     return data
 
 
@@ -45,6 +46,7 @@ def get_dataset(
     csv_file_path,
     id_name="id",
     sentence_name="sentence_norm",
+    wer_name="wer"
 ):
     # Load dataset
     dataset = load_dataset(dataset_name)
@@ -83,14 +85,14 @@ def get_dataset(
 
     output_train_data = os.path.join(current_directory, output_train_path)
 
-    train_zip_data = generate_zip_id_sentence(
-        dataset["train"], id_name, sentence_name, output_train_data
+    train_zip_data = generate_zip_id_sentence_wer(
+        dataset["train"], id_name, sentence_name, wer_name, output_train_data
     )
     generate_csv_from_dataset(train_zip_data, csv_train_file_path)
 
     output_test_data = os.path.join(current_directory, output_eval_path)
-    test_zip_data = generate_zip_id_sentence(
-        dataset["test"], id_name, sentence_name, output_test_data
+    test_zip_data = generate_zip_id_sentence_wer(
+        dataset["test"], id_name, sentence_name, wer_name, output_test_data
     )
     generate_csv_from_dataset(test_zip_data, csv_test_file_path)
 
@@ -102,7 +104,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--dataset_name",
         type=str,
-        default="thanhduycao/data_soict_train_synthesis_entity",
+        default="thanhduycao/soict_train_dataset_v2",
         help="Name of the dataset to download",
     )
 
