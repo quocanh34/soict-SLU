@@ -13,44 +13,57 @@ from denoiser_fb.denoiser_fb import Denoiser
 
 # Add ASR transcription
 def add_asr_transcription(example):
-    wav2vec2_finetuned.model.to(wav2vec2_finetuned.device)
-    input_values = wav2vec2_finetuned.processor.feature_extractor(
-        example["audio"]["array"],
-        sampling_rate=example["audio"]["sampling_rate"],
-        return_tensors="pt"
-    ).to(wav2vec2_finetuned.device)
+    try:
+      wav2vec2_finetuned.model.to(wav2vec2_finetuned.device)
+      input_values = wav2vec2_finetuned.processor.feature_extractor(
+          example["audio"]["array"],
+          sampling_rate=example["audio"]["sampling_rate"],
+          return_tensors="pt"
+      ).to(wav2vec2_finetuned.device)
 
-    with torch.no_grad():
-        raw_denoised_logits = denoise.refactor_audio(example["audio"])
-        denoised_audio_array = denoise.denoise_audio(raw_denoised_logits)
-        
-        input_values_denoise = wav2vec2_finetuned.processor.feature_extractor(
-            denoised_audio_array[0],
-            sampling_rate=example["audio"]["sampling_rate"],
-            return_tensors="pt"
-        ).to(wav2vec2_finetuned.device)
+      with torch.no_grad():
+          raw_denoised_logits = denoise.refactor_audio(example["audio"])
+          denoised_audio_array = denoise.denoise_audio(raw_denoised_logits)
+          
+          input_values_denoise = wav2vec2_finetuned.processor.feature_extractor(
+              denoised_audio_array[0],
+              sampling_rate=example["audio"]["sampling_rate"],
+              return_tensors="pt"
+          ).to(wav2vec2_finetuned.device)
 
-        logits = wav2vec2_finetuned.model(**input_values).logits
-        logits_with_denoise = wav2vec2_finetuned.model(**input_values_denoise).logits
+          logits = wav2vec2_finetuned.model(**input_values).logits
+          logits_with_denoise = wav2vec2_finetuned.model(**input_values_denoise).logits
 
-    prediction = wav2vec2_finetuned.processor.decode(logits.cpu().detach().numpy()[0], beam_width=500).text
-    prediction_with_denoise = wav2vec2_finetuned.processor.decode(logits_with_denoise.cpu().detach().numpy()[0], beam_width=100).text
+      prediction = wav2vec2_finetuned.processor.decode(logits.cpu().detach().numpy()[0], beam_width=500).text
+      prediction_with_denoise = wav2vec2_finetuned.processor.decode(logits_with_denoise.cpu().detach().numpy()[0], beam_width=100).text
 
-    print(f"prediction: {prediction} | with length {len(prediction)}")
-    print(f"prediction_with_denoise: {prediction_with_denoise} | with length {len(prediction_with_denoise)}")
+      print(f"prediction: {prediction} | with length {len(prediction)}")
+      print(f"prediction_with_denoise: {prediction_with_denoise} | with length {len(prediction_with_denoise)}")
 
-    if len(prediction_with_denoise) <= len(prediction):
-        final_prediction = prediction
-    else:
-        final_prediction = prediction_with_denoise
+      if len(prediction_with_denoise) <= len(prediction):
+          final_prediction = prediction
+      else:
+          final_prediction = prediction_with_denoise
 
-    example["pred_str"] = final_prediction
+      # if final_prediction == "":
+      #   example["pred_str"] = "No Speech"
+      # else:
+      example["pred_str"] = final_prediction
 
-    # Empty cuda
-    del input_values
-    del logits
-    del logits_with_denoise
-    torch.cuda.empty_cache()
+      del input_values
+      del logits
+      del logits_with_denoise
+      torch.cuda.empty_cache()
+
+    except Exception as e:
+      print(e)
+      example["pred_str"] = "N/A"
+
+    # # Empty cuda
+    # del input_values
+    # del logits
+    # del logits_with_denoise
+    # torch.cuda.empty_cache()
     return example
 
 # bias_list = "giờ\nphút\n%\ngarage | gara | ga ra | ca ra\ncompact | com pác | com pắc\ncafe | cà phê\nwc | vê kép xê\ngym | jim | dim | rim"
@@ -77,8 +90,14 @@ if __name__ == '__main__':
 
     # Load dataset
     data = load_dataset(args.dataset_path, use_auth_token=args.token)
-    # test_data = data[args.split].select([262])
+
     # Map transcription and norm
+    # selected_sample = list(range(1995))
+    # test_data = data[args.split].select(selected_sample)
+
+    # numbers = list(range(2140))
+    # selected_samples = numbers[:1999] + numbers[2000:]
+
     result = data[args.split].map(add_asr_transcription, num_proc=int(args.num_proc))
     result = result.map(add_norm, num_proc=int(args.num_proc))
 
@@ -90,4 +109,4 @@ if __name__ == '__main__':
     result_dict.save_to_disk(args.local_infer_result_path)
 
     # Push the result
-    result_dict.push_to_hub(args.hgf_infer_result_path, token=args.token) 
+    # result_dict.push_to_hub(args.hgf_infer_result_path, token=args.token) 
