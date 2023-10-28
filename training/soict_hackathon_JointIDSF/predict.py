@@ -279,7 +279,7 @@ def predict(pred_config):
       norm_dataset = norm_dataset.add_column('entities', nlu_ds['entities'])
       norm_dataset = norm_dataset.add_column('file', nlu_ds['file'])
 
-      norm_dataset.push_to_hub("quocanh34/private_model_tts1", token="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") 
+      norm_dataset.push_to_hub("quocanh34/new_nlu_text_correction", token="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") 
     except:
       pass
       

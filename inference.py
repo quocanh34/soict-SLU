@@ -99,12 +99,6 @@ if __name__ == '__main__':
     data = load_dataset(args.dataset_path, use_auth_token=args.token)
 
     # Map transcription and norm
-    # selected_sample = list(range(1995))
-    # test_data = data[args.split].select(selected_sample)
-
-    # numbers = list(range(2140))
-    # selected_samples = numbers[:1999] + numbers[2000:]
-
     result = data[args.split].map(add_asr_transcription, num_proc=int(args.num_proc))
     result = result.map(add_norm, num_proc=int(args.num_proc))
 
