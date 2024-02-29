@@ -1,10 +1,10 @@
-# 1. Inference
-## * Note: Checkpoints links
+## 1. Inference
+### * Note: Checkpoints links
 - ASR: https://huggingface.co/thanhduycao/wav2vec2-large-finetune-aug-on-fly-synthesis-fix-60-epoch-v2/ (checkpoint info(revision code) in predict.sh)
 - Spoken-norm: https://huggingface.co/linhtran92/finetuned_taggenv2_55epoch_encoder_embeddings
 - NLU: file JointIDSF_PhoBERTencoder.zip in folder training/soict_hackathon_JointIDSF/
 
-## 1.0 Run all using .sh file
+### Run all using .sh file
 
 - Download JointIDSF model and move it to the folder training/soict_hackathon_JointIDSF/
 
@@ -45,8 +45,8 @@ python3 predict.py  --input_file="input.txt" --output_file="predictions.jsonl" -
 cd ../..
 ``` -->
 
-# 2. Training
-## 2.1 Train ASR
+## 2. Training
+### 2.1 Train ASR
 More training instructions details are in README.md of this folder
 ```bash
 cd training/ASR-Wav2vec-Finetune
@@ -54,7 +54,7 @@ chmod +x asr_train.sh
 ./asr_train.sh
 cd ../..
 ```
-## 2.2 Train spoken-norm
+### 2.2 Train spoken-norm
 More training instructions details are in README.md of this folder
 ```bash
 cd training/norm-tuned
@@ -62,7 +62,7 @@ chmod +x norm_train.sh
 ./norm_train.sh
 cd ../..
 ```
-## 2.3 Train NLU 
+### 2.3 Train NLU 
 More training instructions details are in README.md of this folder
 ```bash
 cd training
@@ -90,13 +90,13 @@ cd ../..
     - for example: "./new_nlu_50ep_final/4e-5/0.15/100" -> "./<new_model_dir>/4e-5/0.15/100" -->
 
 
-# 3. Synthesis data
-## 3.1 Installation
+## 3. Synthesis data
+### 3.1 Installation
 ```bash
 cd synthesis-data-for-ASR
 pip install -r requirements.txt
 ```
-## 3.2 Create data
+### 3.2 Create data
 ```bash
 CUDA_VISIBLE_DEVICES=0 python create_transcription_wer.py --data_links="thanhduycao/soict_train_dataset" --output_path="thanhduycao/soict_train_dataset_with_wer_validate" --token="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" --num_workers=2
 
