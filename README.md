@@ -23,7 +23,7 @@ scripts/predict.sh
 ```bash
 The results will be in folder training/soict_hackathon_JointIDSF/ under file name "predictions.jsonl"
 ```
-## * Note: In case step 1.0 doesn't work, follow these commands:
+<!-- ## * Note: In case step 1.0 doesn't work, follow these commands:
 ## 1.1 Run ASR and spoken-norm model
 ```bash
 python3 inference.py --dataset_path="quocanh34/soict_test_dataset" --model_path="thanhduycao/wav2vec2-finetune-aug-on-fly-60-epoch-ver-02" --norm_path="linhtran92/finetuned_taggenv2_60epoch_encoder_embeddings" --token="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" --hgf_infer_result_path="quocanh34/test_result" --local_infer_result_path="training/soict_hackathon_JointIDSF/asr_norm_result_data" --num_proc=1 --split="train" --revision="fb695560bcb4edb57659f86930dddd959516b650"
@@ -43,7 +43,7 @@ python3 predict.py  --input_file="input.txt" --output_file="predictions.jsonl" -
 ```
 ```bash
 cd ../..
-```
+``` -->
 
 # 2. Training
 ## 2.1 Train ASR
@@ -77,7 +77,7 @@ chmod +x nlu_train.sh
 ./nlu_train.sh
 cd ../..
 ```
-## * Reproduce new checkpoint links:
+<!-- ## * Reproduce new checkpoint links:
 - ASR: https://huggingface.co/thanhduycao/wav2vec2-finetine-large-synthesis-validate 
     - should delete argument "--revision" in predict.sh for new model
 
@@ -87,10 +87,10 @@ cd ../..
     - should make it a zip file for the next infer (folder to zip is jointIDSF_PhoBERTencoder/)
     - move it to folder soict_hackathon_JointIDSF 
     - in predict.sh, also need to change the "--model_dir" name after being unzip.
-    - for example: "./new_nlu_50ep_final/4e-5/0.15/100" -> "./<new_model_dir>/4e-5/0.15/100"
+    - for example: "./new_nlu_50ep_final/4e-5/0.15/100" -> "./<new_model_dir>/4e-5/0.15/100" -->
 
 
-# 3. Additional (synthesis data)
+# 3. Synthesis data
 ## 3.1 Installation
 ```bash
 cd synthesis-data-for-ASR
@@ -107,11 +107,11 @@ CUDA_VISIBLE_DEVICES=0 python create_entity_dataset.py --data_links="thanhduycao
 CUDA_VISIBLE_DEVICES=0 python create_synthesis_dataset.py --data_links="thanhduycao/data_for_synthesis_with_entities_align_v5_validate" --output_path="thanhduycao/data_synthesis_validate" --token="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" --num_workers=1
 ```
 
-```bash
+<!-- ```bash
 After running all commands in order, 
 we will have the data entity synthesis from: thanhduycao/data_for_synthesis_entities_validate 
 and data swap entities synthesis from: thanhduycao/data_synthesis_validate 
 These two dataset will be concatenated 
 with the original dataset in
 this notebook: https://drive.google.com/drive/folders/1xJJduA3QcEBiCsKuesfoWdM3RPuaCEw0
-```
+``` -->
