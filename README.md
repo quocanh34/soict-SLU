@@ -1,3 +1,5 @@
+# SoICT Hackathon 2023 Track NLU Solutions
+
 ## 1. Inference
 ### * Note: Checkpoints links
 - ASR: https://huggingface.co/thanhduycao/wav2vec2-large-finetune-aug-on-fly-synthesis-fix-60-epoch-v2/ (checkpoint info(revision code) in predict.sh)
